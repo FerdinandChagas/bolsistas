@@ -1,0 +1,21 @@
+_id: req_185ec612a3564ecab130a28c48367c80
+type: Request
+parentId: fld_6535406014d54a08b89775fd9ea54d87
+modified: 1684253611774
+created: 1684253519302
+url: ""
+name: Generate Certificate
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1684253505672
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

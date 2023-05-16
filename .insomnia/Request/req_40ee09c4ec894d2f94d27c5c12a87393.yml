@@ -1,0 +1,21 @@
+_id: req_40ee09c4ec894d2f94d27c5c12a87393
+type: Request
+parentId: fld_9eda0266390844f2a8d2fcb34e2c4362
+modified: 1684253198486
+created: 1684253154760
+url: ""
+name: Clinical Raters by Test
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1684253154760
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,21 @@
+_id: req_0b14b6fae171454ca61424ee4402645c
+type: Request
+parentId: fld_bbe8321b34a84482b09e08bcae8a4e4d
+modified: 1684253950728
+created: 1684253938927
+url: ""
+name: Save Result
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1684253938927
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

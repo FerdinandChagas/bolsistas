@@ -1,0 +1,21 @@
+_id: req_617a022a2d1b48239f7c60e58a343bfe
+type: Request
+parentId: fld_234a816393ac4a72b754a88ffd4e6678
+modified: 1684253905008
+created: 1684253872295
+url: ""
+name: Show Question
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1684253872295
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

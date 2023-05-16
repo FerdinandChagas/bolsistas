@@ -1,0 +1,21 @@
+_id: req_5d64f1fb682c4633881d9e55d25c0601
+type: Request
+parentId: fld_98ef8c029b784cb9bc64c053714948b4
+modified: 1684253729252
+created: 1684253722007
+url: ""
+name: Tests  List
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1684253722007
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

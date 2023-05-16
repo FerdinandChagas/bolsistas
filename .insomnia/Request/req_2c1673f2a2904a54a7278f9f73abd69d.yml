@@ -1,0 +1,21 @@
+_id: req_2c1673f2a2904a54a7278f9f73abd69d
+type: Request
+parentId: fld_039dc909f82648839a18513bacd51712
+modified: 1684252893101
+created: 1684252866514
+url: ""
+name: Token Request
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1684252844869
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

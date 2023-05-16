@@ -1,0 +1,21 @@
+_id: req_b3f90fbdff974ee38f2a55d471d669a1
+type: Request
+parentId: fld_b6140f0a9e944d85bdaf3d2e7c0b32fb
+modified: 1684253978672
+created: 1684252901119
+url: ""
+name: Invite Clinical Rater
+description: ""
+method: POST
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1684252901119
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

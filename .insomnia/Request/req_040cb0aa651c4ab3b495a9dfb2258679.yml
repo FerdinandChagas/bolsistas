@@ -1,0 +1,21 @@
+_id: req_040cb0aa651c4ab3b495a9dfb2258679
+type: Request
+parentId: fld_234a816393ac4a72b754a88ffd4e6678
+modified: 1684253922275
+created: 1684253909662
+url: ""
+name: Send Answer
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1684253872245
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

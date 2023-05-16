@@ -1,0 +1,21 @@
+_id: req_a368b66c90e14d65abe8d37cf8eb7459
+type: Request
+parentId: fld_16d12fb54341417985370361aa13542d
+modified: 1684253475495
+created: 1684253466884
+url: ""
+name: Notifications List
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1684253466884
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
