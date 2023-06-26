@@ -1,5 +1,5 @@
 from django.db import models
-
+from frequencias import managers
 # Create your models here.
 
 class Campus(models.Model):
@@ -22,6 +22,7 @@ class Projeto(models.Model):
     data_inicio = models.DateField()
     data_fim = models.DateField()
     campus = models.ForeignKey("Campus", on_delete=models.CASCADE, related_name="projetos")
+    coordenador = models.ForeignKey("users.Orientador", on_delete=models.CASCADE, related_name="projetos", null=True)
 
     class Meta:
         verbose_name = "Projeto"
@@ -36,7 +37,9 @@ class Ponto(models.Model):
     data = models.DateField()
     hora_entrada = models.TimeField()
     hora_saida = models.TimeField()
-
+    bolsista = models.ForeignKey("users.Bolsista", on_delete=models.CASCADE, related_name="pontos", null=True)
+    frequencia = models.ForeignKey("frequencias.Frequencia", on_delete=models.CASCADE, related_name="pontos", null=True)
+    objects = managers.PontoManager()
     class Meta:
         verbose_name = "Ponto"
         verbose_name_plural = "Pontos"
@@ -47,8 +50,7 @@ class Ponto(models.Model):
 class Frequencia(models.Model):
 
     mes = models.CharField(max_length=100)
-    pontos = models.ManyToManyField("Ponto", related_name="frequencia")
-    ch_total = models.FloatField()
+    ch_total = models.FloatField(default=0)
 
     class Meta:
         verbose_name = "Frequencia"

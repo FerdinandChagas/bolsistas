@@ -15,13 +15,7 @@ class ProjetoSerializer(ModelSerializer):
         model = Projeto
         fields = "__all__"
 
-class PontoSerializer(ModelSerializer):
 
-    bolsista = BolsistaSerializer(many = True)
-
-    class Meta:
-        model = Ponto
-        fields = "__all__"
     
 class FrequenciaSerializer(ModelSerializer):
 
@@ -29,3 +23,12 @@ class FrequenciaSerializer(ModelSerializer):
         model = Frequencia
         fields = "__all__"
 
+class PontoSerializer(ModelSerializer):
+
+    bolsista = BolsistaSerializer()
+    frequencia = FrequenciaSerializer()
+
+
+    class Meta:
+        model = Ponto
+        fields = ["data", "hora_entrada", "hora_saida", "bolsista", "frequencia"]

@@ -31,6 +31,7 @@ class ProReitor(models.Model):
     user = models.OneToOneField("User", on_delete=models.CASCADE)
     inicio_m = models.DateField(null=True)
     fim_m = models.DateField(null=True)
+    objects = managers.ProReitorManager()
 
     class Meta:
         verbose_name = "Pro-reitor"
@@ -42,7 +43,7 @@ class ProReitor(models.Model):
 class Coordenador(models.Model):
     user = models.OneToOneField("User", on_delete=models.CASCADE)
     campus = models.ForeignKey("frequencias.Campus", on_delete=models.CASCADE, default=None)
-
+    objects = managers.CoodenadorManager()
     class Meta:
         verbose_name = "Coordenador"
         verbose_name_plural = "Coordenadores"
@@ -53,7 +54,7 @@ class Coordenador(models.Model):
 class Orientador(models.Model):
     user = models.OneToOneField("User", on_delete=models.CASCADE)
     situacao = models.CharField(max_length=150)
-
+    objects = managers.OrientadorManager()
     class Meta:
         verbose_name = "Orientador"
         verbose_name_plural = "Orientadores"
@@ -67,7 +68,6 @@ class Bolsista(models.Model):
     campus = models.ForeignKey("frequencias.Campus", on_delete=models.CASCADE, related_name="bolsistas")
     projeto = models.ForeignKey("frequencias.Projeto", on_delete=models.CASCADE, related_name="bolsistas")
     frequencias = models.ManyToManyField("frequencias.Frequencia", related_name="bolsista", blank=True)
-    pontos = models.ManyToManyField("frequencias.Ponto", related_name="bolsista", blank=True) 
 
     objects = managers.BolsistaManager()
 

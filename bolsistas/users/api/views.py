@@ -33,17 +33,89 @@ class ProReitorViewSet(ModelViewSet):
     serializer_class = ProReitorSerializer
     queryset = ProReitor.objects.all()
 
+    def create(self, request):
+        matricula = request.data['matricula']
+        name = request.data['name']
+        email = request.data['email']
+        username = request.data['username']
+        password = request.data['password']
+        inicio_m = request.data['inicio_m']
+        fim_m = request.data['fim_m']
+
+        novo_proreitor = ProReitor.objects.create(
+            matricula=matricula,
+            name=name,
+            email=email,
+            username=username,
+            password=password,
+            inicio_m=inicio_m,
+            fim_m=fim_m,
+        )
+        novo_proreitor.save()
+
+        serializer = ProReitorSerializer(novo_proreitor)
+        return Response({"Notice": "Pro-reitor cadastrado com sucesso!", "data": serializer.data}, status=status.HTTP_201_CREATED)
+
+
+
 class CoordenadorViewSet(ModelViewSet):
 
     permission_classes = [ AllowAny ]
     serializer_class = CoodenadorSerializer
     queryset = Coordenador.objects.all()
 
+    def create(self, request):
+        matricula = request.data['matricula']
+        nome = request.data['nome']
+        email = request.data['email']
+        username = request.data['username']
+        password = request.data['password']
+        campus_id = request.data['campus_id']
+
+        novo_coordenador = Coordenador.objects.create(
+            matricula=matricula,
+            nome=nome,
+            email=email,
+            username=username,
+            password=password,
+            campus_id=campus_id,
+        )
+        novo_coordenador.save()
+
+        serializer = CoodenadorSerializer(novo_coordenador)
+        return Response({"Notice": "Coordenador cadastrado com sucesso!", "data": serializer.data}, status=status.HTTP_201_CREATED)
+
+
 class OrientadorViewSet(ModelViewSet):
 
     permission_classes = [ AllowAny ]
     serializer_class = OrientadorSerializer
     queryset = Orientador.objects.all()
+
+    def create(self, request):
+        matricula = request.data['matricula']
+        nome = request.data['nome']
+        email = request.data['email']
+        username = request.data['username']
+        password = request.data['password']
+        projeto_id = request.data['projeto_id']
+        campus_id = request.data['campus_id']
+
+        novo_orientador = Orientador.objects.create(
+            matricula=matricula,
+            nome=nome,
+            email=email,
+            username=username,
+            password=password,
+            project_id=projeto_id,
+            campus_id=campus_id,
+        )
+        novo_orientador.save()
+
+        serializer = OrientadorSerializer(novo_orientador)
+        return Response({"Notice": "Orientador cadastrado com sucesso!", "data": serializer.data}, status=status.HTTP_201_CREATED)
+
+
 
 class BolsistaViewSet(ModelViewSet):
 

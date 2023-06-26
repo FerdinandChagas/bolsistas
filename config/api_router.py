@@ -11,7 +11,7 @@ else:
 
 router.register("users", UserViewSet)
 router.register("proreitoria", ProReitorViewSet, basename="proreitoria")
-router.register("coodenadores", CoordenadorViewSet, basename="coordenadores")
+router.register("coordenadores", CoordenadorViewSet, basename="coordenadores")
 router.register("orientadores", OrientadorViewSet, basename="orientadores")
 router.register("bolsistas", BolsistaViewSet, basename="bolsistas")
 router.register("campus", CampusViewSet, basename="campus")
