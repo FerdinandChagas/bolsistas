@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 from bolsistas.users.forms import UserAdminChangeForm, UserAdminCreationForm
+from bolsistas.users.models import ProReitor, Coordenador, Orientador, Bolsista
 
 User = get_user_model()
 
@@ -31,3 +32,8 @@ class UserAdmin(auth_admin.UserAdmin):
     )
     list_display = ["username", "name", "is_superuser"]
     search_fields = ["name"]
+
+admin.site.register(ProReitor)
+admin.site.register(Coordenador)
+admin.site.register(Orientador)
+admin.site.register(Bolsista)
