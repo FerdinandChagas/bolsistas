@@ -51,10 +51,11 @@ class Frequencia(models.Model):
 
     mes = models.CharField(max_length=100)
     ch_total = models.FloatField(default=0)
+    bolsista = models.ForeignKey("users.Bolsista", on_delete=models.CASCADE, null=True, related_name="frequencias")
 
     class Meta:
         verbose_name = "Frequencia"
         verbose_name_plural = "Frequencias"
 
     def __str__(self):
-        return f'{self.pk} | {self.mes} | {self.bolsista.user.name}'
+        return f'{self.pk} | {self.mes}'

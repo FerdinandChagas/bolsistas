@@ -21,7 +21,7 @@ class FrequenciaSerializer(ModelSerializer):
 
     class Meta:
         model = Frequencia
-        fields = "__all__"
+        fields = ['id', 'mes', 'ch_total']
 
 class PontoSerializer(ModelSerializer):
 

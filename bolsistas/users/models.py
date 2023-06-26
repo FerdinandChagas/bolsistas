@@ -55,6 +55,7 @@ class Orientador(models.Model):
     user = models.OneToOneField("User", on_delete=models.CASCADE)
     situacao = models.CharField(max_length=150)
     objects = managers.OrientadorManager()
+    campus = models.ForeignKey("frequencias.Campus", on_delete=models.CASCADE, related_name="orientadores", null=True)
     class Meta:
         verbose_name = "Orientador"
         verbose_name_plural = "Orientadores"
@@ -67,7 +68,6 @@ class Bolsista(models.Model):
     orientador = models.ForeignKey("Orientador", on_delete=models.CASCADE, related_name="bolsistas", null=True)
     campus = models.ForeignKey("frequencias.Campus", on_delete=models.CASCADE, related_name="bolsistas")
     projeto = models.ForeignKey("frequencias.Projeto", on_delete=models.CASCADE, related_name="bolsistas")
-    frequencias = models.ManyToManyField("frequencias.Frequencia", related_name="bolsista", blank=True)
 
     objects = managers.BolsistaManager()
 

@@ -1,11 +1,15 @@
+from typing import Any
 from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateModelMixin, CreateModelMixin
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from bolsistas.users.models import ProReitor, Coordenador, Orientador, Bolsista
+from frequencias.api.serializers import PontoSerializer
+from frequencias.models import Ponto
 
 from .serializers import UserSerializer, ProReitorSerializer, CoodenadorSerializer, OrientadorSerializer, BolsistaSerializer
 
@@ -29,7 +33,7 @@ class UserViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericV
 
 class ProReitorViewSet(ModelViewSet):
 
-    permission_classes = [ AllowAny ]
+    permission_classes = [ IsAuthenticated ]
     serializer_class = ProReitorSerializer
     queryset = ProReitor.objects.all()
 
@@ -60,11 +64,11 @@ class ProReitorViewSet(ModelViewSet):
 
 class CoordenadorViewSet(ModelViewSet):
 
-    permission_classes = [ AllowAny ]
+    permission_classes = [ IsAuthenticated ]
     serializer_class = CoodenadorSerializer
     queryset = Coordenador.objects.all()
 
-    def create(self, request):
+    def create(self, request, *args, **kwargs):
         matricula = request.data['matricula']
         nome = request.data['nome']
         email = request.data['email']
@@ -88,7 +92,7 @@ class CoordenadorViewSet(ModelViewSet):
 
 class OrientadorViewSet(ModelViewSet):
 
-    permission_classes = [ AllowAny ]
+    permission_classes = [ IsAuthenticated ]
     serializer_class = OrientadorSerializer
     queryset = Orientador.objects.all()
 
@@ -107,7 +111,7 @@ class OrientadorViewSet(ModelViewSet):
             email=email,
             username=username,
             password=password,
-            project_id=projeto_id,
+            projeto_id=projeto_id,
             campus_id=campus_id,
         )
         novo_orientador.save()
@@ -119,7 +123,7 @@ class OrientadorViewSet(ModelViewSet):
 
 class BolsistaViewSet(ModelViewSet):
 
-    permission_classes = [ AllowAny ]
+    permission_classes = [ IsAuthenticated ]
     serializer_class = BolsistaSerializer
     queryset = Bolsista.objects.all()
 
@@ -146,3 +150,9 @@ class BolsistaViewSet(ModelViewSet):
         serializer = BolsistaSerializer(novo_bolsista)
         return Response({"Notice": "Bolsista cadastrado com sucesso!", "data": serializer.data}, status=status.HTTP_201_CREATED)
 
+    @action(methods=['get'], detail=False, url_path='pontos')
+    def listar_pontos(self, request):
+        mes = request.query_params.get('mes')
+        pontos = Bolsista.objects.listar_pontos(request.user, mes)
+        serializer = PontoSerializer(pontos, many=True)
+        return Response({"Notice": "Lista de registros do mês.", "data": serializer.data}, status=status.HTTP_200_OK)

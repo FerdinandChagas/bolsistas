@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 from bolsistas.users.models import ProReitor, Coordenador, Orientador, Bolsista
 
+
 User = get_user_model()
 
 
@@ -45,4 +46,4 @@ class BolsistaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bolsista
-        fields = ['user', 'campus', 'projeto']
+        fields = ['user', 'campus', 'projeto', 'frequencias']

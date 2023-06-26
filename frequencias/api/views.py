@@ -1,5 +1,5 @@
 from rest_framework import status
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
@@ -9,20 +9,20 @@ from frequencias.api.serializers import CampusSerializer, ProjetoSerializer, Pon
 
 class CampusViewSet(ModelViewSet):
 
-    permission_classes = [ AllowAny ]
+    permission_classes = [ IsAuthenticated ]
     serializer_class = CampusSerializer
     queryset = Campus.objects.all()
 
 
 class ProjetoViewSet(ModelViewSet):
 
-    permission_classes = [ AllowAny ]
+    permission_classes = [ IsAuthenticated ]
     serializer_class = ProjetoSerializer
     queryset = Projeto.objects.all()
 
 class PontoViewSet(ModelViewSet):
 
-    permission_classes = [ AllowAny ]
+    permission_classes = [ IsAuthenticated ]
     serializer_class = PontoSerializer
     queryset = Ponto.objects.all()
 
@@ -44,7 +44,7 @@ class PontoViewSet(ModelViewSet):
 
 class FrequenciaViewSet(ModelViewSet):
 
-    permission_classes = [ AllowAny ]
+    permission_classes = [ IsAuthenticated ]
     serializer_class = FrequenciaSerializer
     queryset = Frequencia.objects.all()
 
