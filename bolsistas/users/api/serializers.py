@@ -46,4 +46,4 @@ class BolsistaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bolsista
-        fields = ['user', 'campus', 'projeto', 'frequencias']
+        fields = fields = "__all__"

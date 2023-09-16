@@ -17,6 +17,7 @@ class User(AbstractUser):
     first_name = None  # type: ignore
     last_name = None  # type: ignore
     matricula = models.CharField(max_length=150, default=0)
+    email = models.EmailField(blank=True, max_length=254, unique=True, verbose_name="email address")
     
     def get_absolute_url(self):
         """Get url for user's detail view.
