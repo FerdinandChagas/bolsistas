@@ -57,6 +57,7 @@ class Orientador(models.Model):
     situacao = models.CharField(max_length=150)
     objects = managers.OrientadorManager()
     campus = models.ForeignKey("frequencias.Campus", on_delete=models.CASCADE, related_name="orientadores", null=True)
+    projeto = models.ForeignKey("frequencias.Projeto", on_delete=models.CASCADE, related_name="orientadores", null=True)
     class Meta:
         verbose_name = "Orientador"
         verbose_name_plural = "Orientadores"

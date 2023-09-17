@@ -49,7 +49,7 @@ class OrientadorManager(Manager):
 
         projeto = models.Projeto.objects.get(id=projeto_id)
         campus = models.Campus.objects.get(id=campus_id)
-        orientador = super().create(user=new_user, campus=campus, situacao="ATIVO")
+        orientador = super().create(user=new_user, projeto=projeto, campus=campus, situacao="ATIVO")
         projeto.coordenador = orientador
         projeto.save()
         return orientador
